@@ -8,29 +8,28 @@ import java.util.List;
 @Component
 public class MemoryCustomerRepository implements CustomerRepository {
 
-    private List<SimpleCustomerLogger> customers;
-    private SimpleCustomerLogger simpleCustomerLogger;
+    private List<Customer> customers = new ArrayList<>();
+    private CustomerLogger customerLogger;
 
-    public MemoryCustomerRepository(SimpleCustomerLogger simpleCustomerLogger) {
-        this.customers = new ArrayList<>();
-        this.simpleCustomerLogger = simpleCustomerLogger;
+    public MemoryCustomerRepository(CustomerLogger customerLogger) {
+        this.customerLogger = customerLogger;
     }
 
     @Override
-    public void addCustomer(SimpleCustomerLogger customer) {
-        customers.add(customer);
+    public void addCustomer(Customer customer) {
+        this.customers.add(customer);
         System.out.print("Customer dodany: ");
-        this.simpleCustomerLogger.log();
+        this.customerLogger.log();
     }
 
     @Override
-    public void deleteCustomer() {
-        this.simpleCustomerLogger.log();
+    public void deleteCustomer(Customer customer) {
+        this.customerLogger.log();
     }
 
     @Override
-    public List getCustomers() {
-        this.simpleCustomerLogger.log();
+    public List<Customer> getCustomers() {
+        this.customerLogger.log();
         return null;
     }
 }

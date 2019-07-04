@@ -1,6 +1,7 @@
 package pl.coderslab.app;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import pl.coderslab.beans.Customer;
 import pl.coderslab.beans.FileCustomerLogger;
 import pl.coderslab.beans.MemoryCustomerRepository;
 import pl.coderslab.beans.SimpleCustomerLogger;
@@ -15,10 +16,8 @@ public class SpringDiApplication {
         SimpleCustomerLogger simpleCustomerLogger = (SimpleCustomerLogger) context.getBean("simpleCustomerLogger");
         simpleCustomerLogger.log();
 
-        FileCustomerLogger fileCustomerLogger = (FileCustomerLogger) context.getBean("fileCustomerLogger");
-        fileCustomerLogger.log();
-
+        Customer customer  = new Customer();
         MemoryCustomerRepository memoryCustomerRepository = (MemoryCustomerRepository) context.getBean("memoryCustomerRepository");
-        memoryCustomerRepository.addCustomer(simpleCustomerLogger);
+        memoryCustomerRepository.addCustomer(customer);
     }
 }

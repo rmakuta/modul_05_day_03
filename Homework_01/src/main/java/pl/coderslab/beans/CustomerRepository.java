@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CustomerRepository {
 
-    void addCustomer(SimpleCustomerLogger customer);
-    void deleteCustomer();
-    List getCustomers();
+    void addCustomer(Customer customer);
+    void deleteCustomer(Customer customer);
+    List<Customer> getCustomers();
 }

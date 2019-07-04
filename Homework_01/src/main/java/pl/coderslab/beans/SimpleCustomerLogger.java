@@ -2,11 +2,13 @@ package pl.coderslab.beans;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class SimpleCustomerLogger implements CustomerLogger {
 
     @Override
     public void log() {
-        System.out.println("<Aktualna data i godzina>: Customer operation");
+        System.out.println(new Date() + ": Customer operation");
     }
 }
